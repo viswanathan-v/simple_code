@@ -1,0 +1,57 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    static boolean armstrong(int n){
+        int t=n;
+        int sum=0;
+        while(t!=0){
+            int y=t%10;
+            sum+=(y*y*y);
+            t=t/10;
+        }
+        if(sum==n){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int m=sc.nextInt();
+        int sum=0;
+        if (n<10 && n>0){
+            sum+=n;
+        }
+        if(sum==0){
+            for(int i=n;i<m+1;i++){
+                boolean a=armstrong(i);
+                if(a==true){
+                    sum+=i;
+                    break;
+                }
+            }
+            for(int j=m;j>n;j--){
+                boolean g=armstrong(j);
+                if(g==true){
+                    sum+=j;
+                    break;
+                }
+            }
+        }else{
+            for(int j=m;j>10;j--){
+                boolean g=armstrong(j);
+                if(g==true){
+                    sum+=j;
+                    break;
+                }
+            }
+            
+        }
+        System.out.println(sum);
+    }
+}
